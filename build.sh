@@ -3,7 +3,6 @@ printf "cc/cf? "
 
 read CONPLT
 
-cd ..
 
 if [ "$CONPLT" = "cf" ]; then
     echo "Round? "
