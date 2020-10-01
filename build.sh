@@ -1,4 +1,4 @@
-printf "cc/cf? "
+printf "cc/cf/other? "
 
 
 read CONPLT
@@ -15,7 +15,7 @@ if [ "$CONPLT" = "cf" ]; then
     cp temp.cpp "Cf_""$ROUND""_div""$DIV"/B.cpp
     cp temp.cpp "Cf_""$ROUND""_div""$DIV"/C.cpp
     cp temp.cpp "Cf_""$ROUND""_div""$DIV"/D.cpp
-else
+else if [ "$CONPLT" = "cf" ]; then
     echo "Entering as CC"
     
     printf "Long/Cook-off/Lunchtime?  "
@@ -30,5 +30,20 @@ else
     cp temp.cpp "CC_""$MONTH""_""$ROUND""_div""$DIV"/2.cpp
     cp temp.cpp "CC_""$MONTH""_""$ROUND""_div""$DIV"/3.cpp
     cp temp.cpp "CC_""$MONTH""_""$ROUND""_div""$DIV"/4.cpp
+else
+    echo "Entering as others"
+    
+    printf "Name of round"
+    read ROUND
+    printf "Month?"
+    read MONTH
+    echo "div?"
+    read DIV
+    mkdir "CC_""$MONTH""_""$ROUND""_div""$DIV"
+    
+    cp temp.cpp "Others""$MONTH""_""$ROUND""_div""$DIV"/1.cpp
+    cp temp.cpp "Others""$MONTH""_""$ROUND""_div""$DIV"/2.cpp
+    cp temp.cpp "Others""$MONTH""_""$ROUND""_div""$DIV"/3.cpp
+    cp temp.cpp "Others""$MONTH""_""$ROUND""_div""$DIV"/4.cpp
 fi
 echo $CONPLT$ROUND$DIV
